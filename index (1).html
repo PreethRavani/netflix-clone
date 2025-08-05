@@ -3,216 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Clone</title>
-    <link rel="stylesheet" href="https://github.com/PreethRavani/netflix-clone/blob/main/styles.css">
+    <title>Netflix - Watch Movies & TV Shows</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: transparent;
+            transition: background 0.3s;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background: #141414;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .sign-in-btn {
+            background: #e50914;
+            color: #fff;
+            padding: 7px 17px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .cta-form input {
+            padding: 15px;
+            font-size: 1rem;
+            flex: 1;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .cta-form button {
+            background: #e50914;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 5%;
+            background: #000;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 50px 0;
+            gap: 50px;
+        }
+
+        .feature-item img {
+            max-width: 50%;
+            border-radius: 10px;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-text p {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 50px 5%;
+            background: #141414;
+            color: #757575;
+        }
+
+        .footer a {
+            color: #757575;
+            text-decoration: none;
+            margin: 5px 0;
+            display: block;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .cta-form {
+                flex-direction: column;
+            }
+
+            .cta-form input, .cta-form button {
+                width: 100%;
+            }
+
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-item img {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="netflix-logo">
-                </div>
-                <div class="nav-actions">
-                    <select class="language-select">
-                        <option>English</option>
-                        <option>Español</option>
-                    </select>
-                    <button class="sign-in-btn">Sign In</button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="logo">StreamFlix</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Movies</a>
+            <a href="#" class="sign-in-btn">Sign In</a>
+        </div>
+    </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
-            <div class="hero-gradient"></div>
+        <h1>Unlimited movies, TV shows, and more</h1>
+        <p>Watch anywhere. Cancel anytime.</p>
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+        <div class="cta-form">
+            <input type="email" placeholder="Email address">
+            <button>Get Started</button>
         </div>
-        <div class="hero-content">
-            <h1 class="hero-title">Unlimited movies, TV shows, and more</h1>
-            <p class="hero-subtitle">Watch anywhere. Cancel anytime.</p>
-            <p class="hero-description">Ready to watch? Enter your email to create or restart your membership.</p>
-            <div class="email-signup">
-                <input type="email" placeholder="Email address" class="email-input">
-                <button class="get-started-btn">Get Started ></button>
+    </section>
+
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-text">
+                <h2>Enjoy on your TV</h2>
+                <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1593351706174-831739282733?auto=format&fit=crop&w=600" alt="TV">
+        </div>
+        <div class="feature-item">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDEwfHx8ZW58MHx8fHx8" alt="Mobile">
+            <div class="feature-text">
+                <h2>Watch everywhere</h2>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
             </div>
         </div>
     </section>
 
-    <!-- Trending Now Section -->
-    <section class="trending-section">
-        <div class="trending-container">
-            <h2 class="trending-title">Trending Now</h2>
-            <div class="trending-carousel">
-                <div class="trending-item">
-                    <div class="trending-number">1</div>
-                    <img src="https://images.unsplash.com/photo-1489599735734-79b4212ccb90?w=200&h=300&fit=crop&crop=center" alt="RAID 2" class="trending-poster">
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">2</div>
-                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=200&h=300&fit=crop&crop=center" alt="Squid Game" class="trending-poster">
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">3</div>
-                    <img src="https://images.unsplash.com/photo-1489599735734-79b4212ccb90?w=200&h=300&fit=crop&crop=center" alt="Great Indian Kapil Show" class="trending-poster">
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">4</div>
-                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=200&h=300&fit=crop&crop=center" alt="Mandala Murders" class="trending-poster">
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">5</div>
-                    <img src="https://images.unsplash.com/photo-1489599735734-79b4212ccb90?w=200&h=300&fit=crop&crop=center" alt="Aap Jaisa Koi" class="trending-poster">
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">6</div>
-                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=200&h=300&fit=crop&crop=center" alt="Mystery Show" class="trending-poster">
-                </div>
-                <button class="carousel-nav next">›</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- More Reasons to Join Section -->
-    <section class="reasons-section">
-        <div class="reasons-container">
-            <h2 class="reasons-title">More reasons to join</h2>
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <h3>Enjoy on your TV</h3>
-                    <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-                    <div class="reason-icon tv-icon"></div>
-                </div>
-                <div class="reason-card">
-                    <h3>Download your shows to watch offline</h3>
-                    <p>Save your favourites easily and always have something to watch.</p>
-                    <div class="reason-icon download-icon"></div>
-                </div>
-                <div class="reason-card">
-                    <h3>Watch everywhere</h3>
-                    <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
-                    <div class="reason-icon devices-icon"></div>
-                </div>
-                <div class="reason-card">
-                    <h3>Create profiles for kids</h3>
-                    <p>Send kids on adventures with their favourite characters in a space made just for them — free with your membership.</p>
-                    <div class="reason-icon kids-icon"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="faq-container">
-            <h2 class="faq-title">Frequently Asked Questions</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What is Netflix?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies and documentaries on thousands of internet-connected devices.</p>
-                        <p>You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How much does Netflix cost?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from $6.99 to $22.99 a month. No extra costs, no contracts.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Where can I watch?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How do I cancel?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What can I watch on Netflix?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Is Netflix good for kids?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.</p>
-                        <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-signup">
-                <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                <div class="email-signup">
-                    <input type="email" placeholder="Email address" class="email-input">
-                    <button class="get-started-btn">Get Started ></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <p class="footer-contact">Questions? Call 1-844-505-2993</p>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <a href="#">FAQ</a>
-                    <a href="#">Investor Relations</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Speed Test</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Help Center</a>
-                    <a href="#">Jobs</a>
-                    <a href="#">Cookie Preferences</a>
-                    <a href="#">Legal Notices</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Account</a>
-                    <a href="#">Ways to Watch</a>
-                    <a href="#">Corporate Information</a>
-                    <a href="#">Only on Netflix</a>
-                </div>
-                <div class="footer-column">
-                    <a href="#">Media Center</a>
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Contact Us</a>
-                </div>
-            </div>
-            <select class="language-select footer-language">
-                <option>English</option>
-                <option>Español</option>
-            </select>
-            <p class="footer-country">Netflix United States</p>
+        <div class="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">Help Center</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookie Preferences</a>
+            <a href="#">Corporate Information</a>
         </div>
     </footer>
 
-    <script src="https://github.com/PreethRavani/netflix-clone/blob/main/script.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelector('.cta-form button').addEventListener('click', () => {
+            const email = document.querySelector('.cta-form input').value;
+            if (email) {
+                alert('Starting your membership with: ' + email);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
 </body>
 </html>
